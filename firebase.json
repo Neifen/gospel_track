@@ -1,6 +1,7 @@
 {
     "hosting": {
       "public": "build/web",
+      "site": "burnapp-fca75",
       "ignore": [
         "firebase.json",
         "**/.*",

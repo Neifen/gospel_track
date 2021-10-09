@@ -6,11 +6,11 @@ import 'package:provider/provider.dart';
 
 class GospelTrackPage extends StatelessWidget {
   static const List<String> _imgList = [
-    'crappy/1_5finger.jpg',
-    'crappy/2_5finger.jpg',
-    'crappy/3_5finger.jpg',
-    'crappy/4_5finger.jpg',
-    'crappy/5_5finger.jpg'
+    'pictures/crappy/1_5finger.jpg',
+    'pictures/crappy/2_5finger.jpg',
+    'pictures/crappy/3_5finger.jpg',
+    'pictures/crappy/4_5finger.jpg',
+    'pictures/crappy/5_5finger.jpg'
   ];
   static const String route = 'gospel';
 
