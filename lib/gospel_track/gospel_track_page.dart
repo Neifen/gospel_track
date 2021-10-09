@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:gospel_track/gospel_track/info_gospel_page.dart';
 import 'package:gospel_track/gospel_track/page_number.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 
 class GospelTrackPage extends StatelessWidget {
@@ -29,7 +30,11 @@ class GospelTrackPage extends StatelessWidget {
       body: GestureDetector(
         onVerticalDragUpdate: (details) {
           if (details.primaryDelta != null && details.primaryDelta! < -9) {
-            Navigator.pushNamed(context, InfoGospelPage.route);
+            Navigator.push(
+                context,
+                PageTransition(
+                    type: PageTransitionType.bottomToTop,
+                    child: const InfoGospelPage()));
           }
         },
         child: CarouselSlider(
