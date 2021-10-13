@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:gospel_track/gospel_track/info_gospel_page.dart';
 import 'package:gospel_track/gospel_track/page_number.dart';
+import 'package:gospel_track/gospel_track/pulsing_element.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 
@@ -44,6 +45,7 @@ class _GospelTrackPageState extends State<GospelTrackPage> {
           }
         },
         child: Stack(
+          fit: StackFit.expand,
           children: [
             CarouselSlider(
               options: CarouselOptions(
@@ -52,7 +54,6 @@ class _GospelTrackPageState extends State<GospelTrackPage> {
                   height: height,
                   viewportFraction: 1.0,
                   enlargeCenterPage: false,
-                  onScrolled: (_) {},
                   onPageChanged: (index, _) {
                     return context.read<PageNumber>().changePage(index);
                   }),
@@ -66,6 +67,29 @@ class _GospelTrackPageState extends State<GospelTrackPage> {
                         height: height,
                       ))))
                   .toList(),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24),
+              child:
+                  Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
+                context.watch<PageNumber>().isFirst()
+                    ? const Spacer()
+                    : PulsingElement(Icons.keyboard_arrow_left),
+                const Spacer(),
+                context.watch<PageNumber>().isLast()
+                    ? const Spacer()
+                    : PulsingElement(Icons.keyboard_arrow_right),
+              ]),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 24),
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    const Spacer(),
+                    PulsingElement(Icons.keyboard_arrow_down),
+                  ]),
             ),
             Column(
               mainAxisAlignment: MainAxisAlignment.end,

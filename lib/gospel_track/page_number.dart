@@ -55,4 +55,12 @@ class PageNumber extends ChangeNotifier {
       notifyListeners();
     }
   }
+
+  isFirst() {
+    return currentPage == _min;
+  }
+
+  isLast() {
+    return currentPage == _max;
+  }
 }
