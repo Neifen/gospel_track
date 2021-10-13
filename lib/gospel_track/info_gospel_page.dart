@@ -13,23 +13,32 @@ class InfoGospelPage extends StatelessWidget {
     GospelInfo info = context.watch<PageNumber>().getInfo();
 
     List<Widget> columnList = [
-      Text(
-        info.title,
-        style: const TextStyle(fontSize: 32),
+      Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Text(
+          info.title,
+          style: const TextStyle(fontSize: 32),
+        ),
       ),
-      const Divider()
     ];
 
     for (var desc in info.descriptions) {
-      columnList.add(Card(
-        child: Text(desc),
+      columnList.add(Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Card(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(desc),
+          ),
+        ),
       ));
     }
 
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(24.0),
       child: SingleChildScrollView(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: columnList,
         ),
       ),

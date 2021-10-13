@@ -52,8 +52,10 @@ class _GospelTrackPageState extends State<GospelTrackPage> {
                   height: height,
                   viewportFraction: 1.0,
                   enlargeCenterPage: false,
-                  onPageChanged: (index, _) =>
-                      context.read<PageNumber>().currentPage = index),
+                  onScrolled: (_) {},
+                  onPageChanged: (index, _) {
+                    return context.read<PageNumber>().changePage(index);
+                  }),
               items: GospelTrackPage._imgList
                   .map((item) => Container(
                       color: Colors.white,
