@@ -14,7 +14,7 @@ class InfoGospelPage extends StatelessWidget {
 
     List<Widget> columnList = [
       Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.only(top: 40, bottom: 16),
         child: Text(
           info.title,
           style: const TextStyle(fontSize: 32),
@@ -24,7 +24,7 @@ class InfoGospelPage extends StatelessWidget {
 
     for (var desc in info.descriptions) {
       columnList.add(Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.only(top: 16, left: 32, right: 32),
         child: Card(
           child: Padding(
             padding: const EdgeInsets.all(8.0),
@@ -34,13 +34,10 @@ class InfoGospelPage extends StatelessWidget {
       ));
     }
 
-    return Padding(
-      padding: const EdgeInsets.all(24.0),
-      child: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: columnList,
-        ),
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: columnList,
       ),
     );
   }
