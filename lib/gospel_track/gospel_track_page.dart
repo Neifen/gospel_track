@@ -71,7 +71,8 @@ class _GospelTrackPageState extends State<GospelTrackPage> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 const Spacer(),
-                Container(
+                AnimatedContainer(
+                  duration: const Duration(milliseconds: 50),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: const BorderRadius.only(
