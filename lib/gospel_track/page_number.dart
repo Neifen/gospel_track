@@ -3,6 +3,8 @@ import 'package:gospel_track/gospel_track/gospel_info.dart';
 
 class PageNumber extends ChangeNotifier {
   int currentPage = 0;
+  Map<IconData, int> pulseCounter = {};
+
   static const int _min = 0;
   static const int _max = 4;
 
@@ -39,21 +41,8 @@ class PageNumber extends ChangeNotifier {
 
   changePage(int newPage) {
     currentPage = newPage;
+    pulseCounter.updateAll((key, value) => 0);
     notifyListeners();
-  }
-
-  nextPage() {
-    if (currentPage != _max) {
-      currentPage++;
-      notifyListeners();
-    }
-  }
-
-  lastPage() {
-    if (currentPage != _min) {
-      currentPage--;
-      notifyListeners();
-    }
   }
 
   isFirst() {
